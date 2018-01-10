@@ -17,7 +17,7 @@
 }
 .icon-Twitter:before { content: "\e600"; }
 .icon-sociallinkedin:before { content: "\e601"; }
-.icon-weibo:before { content: "\e602"; }
+.icon-weibo:before { content: "\e600"; }
 .icon-iconsf:before { content: "\e611"; }
 .icon-google:before { content: "\e603"; }
 .icon-rss:before { content: "\e60e"; }
