@@ -1,14 +1,8 @@
 
 
-  
 
 
 
-
-  
-
-
-  
 
 
 <!doctype html>
@@ -22,9 +16,9 @@
   
   
   
-    <meta name="description" content="">
+    <meta name="description" content="附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面">
   
-  <title>Archives: 1/2018: 2018 [ Ce-H ]</title>
+  <title>第一篇博客文章测试 [ Ce-H ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -43,6 +37,15 @@
 <body>
 <div class="side-navigate hide-area">
   
+  
+    <div class="item next">
+      <a href="/2018/01/08/hello-world/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Hello World
+      </div>
+    </div>
   
 </div>
 <div id="outer-container" class="hide-area">
@@ -68,7 +71,7 @@
           </li>
         
           
-            <li class="active">
+            <li>
           
             <a href="/archives">Archives</a>
             
@@ -114,96 +117,44 @@
     <div id="content-inner">
       
       
-  <article>
-    
-
-  <div id="recent-posts">
-    <h1>Archives
-    
-      <span class="posts-count">
-      Total
-      2
+  <article id="post">
+    <h1>第一篇博客文章测试</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2018-01-10</span>
       
-        posts
-      
-      </span>
-    
-    </h1>
-    
-    
-      
-      
-        
-      
-      
-    
+        <span id = "post-title-updated">Updated at 2018-01-10</span>
       
       
       
+    </p>
     
-    
-    
-      
-      
-        
-        <h3 class="archive-year-title">2018
-        
-          <span class="posts-count">
-          Total
-          2
-          
-            posts
-          
-          </span>
-        
-        </h3>
-      
-      <div class="post-title-item">
-  
-  <a href="/2018/01/10/my-first-blog/">
-  
-    第一篇博客文章测试
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">1-10</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-      
-      
-      <div class="post-title-item">
-  
-  <a href="/2018/01/08/hello-world/">
-  
-    Hello World
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">1-8</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-  </div>
-
+    <p>这里面是博客的内容，大家可以仔细研读</p>
 
   </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2018/01/08/hello-world/" class="next">Next post Hello World &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
 
       
       
@@ -313,6 +264,8 @@ var unsplashConfig = {"gravity":"north"};
 var turnoffBackgroundImage = false;
 
 
+
+  turnoffBackgroundImage = true;
 
 
 var backgroundColor = "34495E";
