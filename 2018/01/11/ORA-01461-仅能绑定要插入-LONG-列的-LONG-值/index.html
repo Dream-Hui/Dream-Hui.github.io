@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值 | Ce-H之家</title>
+  <meta name="description" content="在操作数据库的时候，讲一个数值保存到一个VARCHAR(2000)的字段里面，出现了下面的错误：仅能绑定要插入 LONG 列的 LONG 值。 以下是我的错误异常日志123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值">
+<meta property="og:url" content="http://yoursite.com/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/index.html">
+<meta property="og:site_name" content="Ce-H">
+<meta property="og:description" content="在操作数据库的时候，讲一个数值保存到一个VARCHAR(2000)的字段里面，出现了下面的错误：仅能绑定要插入 LONG 列的 LONG 值。 以下是我的错误异常日志123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263">
+<meta property="og:updated_time" content="2018-01-11T09:42:32.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值">
+<meta name="twitter:description" content="在操作数据库的时候，讲一个数值保存到一个VARCHAR(2000)的字段里面，出现了下面的错误：仅能绑定要插入 LONG 列的 LONG 值。 以下是我的错误异常日志123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Ce-H" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Dream-Hui" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar1.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Ce-H</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">一个科班码农</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/归档">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/分类">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/豆瓣书单">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/友链">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/关于">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Dream-Hui" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/oracle/" style="font-size: 13px;">oracle</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/" class="title">ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-11T09:41:37.000Z" itemprop="datePublished">2018-01-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/10/my-first-blog/" class="title">第一篇博客文章测试</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-10T11:35:22.000Z" itemprop="datePublished">2018-01-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/08/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-08T12:22:24.596Z" itemprop="datePublished">2018-01-08</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ORA-01461-仅能绑定要插入-LONG-列的-LONG-值" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/" class="article-date">
+	  <time datetime="2018-01-11T09:41:37.000Z" itemprop="datePublished">2018-01-11</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/oracle/">oracle</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>在操作数据库的时候，讲一个数值保存到一个VARCHAR(2000)的字段里面，出现了下面的错误：仅能绑定要插入 LONG 列的 LONG 值。</p>
+<p>以下是我的错误异常日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.jdbc.UncategorizedSQLException: </span><br><span class="line">### Error updating database.  Cause: java.sql.SQLException: ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值</span><br><span class="line"></span><br><span class="line">### The error may involve com.ytd.lineTrip.model.tripRecord.LineTripRecord.update-Inline</span><br><span class="line">### The error occurred while setting parameters</span><br><span class="line">### SQL: UPDATE W_LINE_TRIP_RECORD SET   F_HAPPENTIME=?,   F_STATIONNAME=?,   F_EQUIPMENTNAME=?,   F_EQUIPMENTTYPE=?,   F_TESTNAME=?,   F_ITEMNAME=?,   F_EQUIPMENTNAME2=?,   F_OLDID=?,   F_VOLLEVEL=?,   F_ISDELETE=?,   F_RECORD=?,   F_AREA=?,   F_LINECODE=?,   F_PHASE=?,   F_LOSTLOAD=?,   F_CONSUMER=?,   F_RECLOSE=?,   F_VIPCONSUMER=?,   F_DESCRIBE=?,   F_TRIPTIME=?,   F_ONTIME=?,   F_EVENTNAME=?,   F_THEDISPATCHING=?,   F_THEAREACOUNTY=?,   F_SUBSTATION2=?,   F_LINELENGTH=?,   F_OUTAGETYPE=?,   F_POWERFAILURETYPE=?,   F_FAULTTYPE=?,   F_MAINTENANCEDEPARTMEN=?,   F_OUTAGECAUSE=?,   F_LOWVOLTAGETALK=?,   F_PROTECTIONACTION=?,   F_ENERGIZATIONINFO=?,   F_LLINEPATROLINFO=?,   F_RECOVERYINFO=?,   F_RECORDMAN=?,   F_RECORDMANID=?,   F_RECORDTIME=?,   F_EFFECTSELECTRICITY=?,   F_RECEIVETIME=?,   F_FSRQ=?,   F_FZDZT=?,   F_THEBUS=?,   F_LOADRECOVERED=?,   F_RECOVEREDUSERNUM=?,   F_EFFECTSUSERSIMPORTAN=?,   F_IMPORTANTUSERSREPOWE=?,   F_ONTRIP_RECEIVETIME=?,   F_FYJZT=?,   F_FYJRQ=?,   F_SYNCSTATE=?,   F_LINENAME=?,   F_JBM=?,   F_STATUS=?,   F_SUBSTATION1=?   WHERE   ID=?</span><br><span class="line">### Cause: java.sql.SQLException: ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值</span><br><span class="line"></span><br><span class="line">; uncategorized SQLException for SQL []; SQL state [72000]; error code [1461]; ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值</span><br><span class="line">; nested exception is java.sql.SQLException: ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值</span><br><span class="line"></span><br><span class="line">	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:83)</span><br><span class="line">	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:80)</span><br><span class="line">	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:80)</span><br><span class="line">	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:71)</span><br><span class="line">	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:364)</span><br><span class="line">	at com.sun.proxy.$Proxy10.update(Unknown Source)</span><br><span class="line">	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:250)</span><br><span class="line">	at com.hotent.core.db.GenericDao.update(GenericDao.java:329)</span><br><span class="line">	at com.hotent.core.service.GenericService.update(GenericService.java:62)</span><br><span class="line">	at com.ytd.lineTrip.service.tripRecord.LineTripRecordService.synchronizationToOms(LineTripRecordService.java:63)</span><br><span class="line">	at com.ytd.lineTrip.service.tripRecord.LineTripRecordService$$FastClassByCGLIB$$1afc51af.invoke(&lt;generated&gt;)</span><br><span class="line">	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)</span><br><span class="line">	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:688)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)</span><br><span class="line">	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:110)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)</span><br><span class="line">	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:90)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)</span><br><span class="line">	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:621)</span><br><span class="line">	at com.ytd.lineTrip.service.tripRecord.LineTripRecordService$$EnhancerByCGLIB$$41c68730.synchronizationToOms(&lt;generated&gt;)</span><br><span class="line">	at com.ytd.oms.instancehandler.service.impl.OcsTzjl.receiveData(OcsTzjl.java:121)</span><br><span class="line">	at com.ytd.oms.soap.SOAPImpl.getData(SOAPImpl.java:56)</span><br><span class="line">	at com.ytd.oms.soap.SOAPSkeleton.getData(SOAPSkeleton.java:164)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:597)</span><br><span class="line">	at org.apache.axis.providers.java.RPCProvider.invokeMethod(RPCProvider.java:397)</span><br><span class="line">	at org.apache.axis.providers.java.RPCProvider.processMessage(RPCProvider.java:186)</span><br><span class="line">	at org.apache.axis.providers.java.JavaProvider.invoke(JavaProvider.java:323)</span><br><span class="line">	at org.apache.axis.strategies.InvocationStrategy.visit(InvocationStrategy.java:32)</span><br><span class="line">	at org.apache.axis.SimpleChain.doVisiting(SimpleChain.java:118)</span><br><span class="line">	at org.apache.axis.SimpleChain.invoke(SimpleChain.java:83)</span><br><span class="line">	at org.apache.axis.handlers.soap.SOAPService.invoke(SOAPService.java:454)</span><br><span class="line">	at org.apache.axis.server.AxisServer.invoke(AxisServer.java:281)</span><br><span class="line">	at org.apache.axis.transport.http.AxisServlet.doPost(AxisServlet.java:699)</span><br><span class="line">	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)</span><br><span class="line">	at org.apache.axis.transport.http.AxisServletBase.service(AxisServletBase.java:327)</span><br><span class="line">	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)</span><br><span class="line">	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:225)</span><br><span class="line">	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)</span><br><span class="line">	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)</span><br><span class="line">	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)</span><br><span class="line">	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)</span><br><span class="line">	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)</span><br><span class="line">	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)</span><br><span class="line">	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)</span><br><span class="line">	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:999)</span><br><span class="line">	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:565)</span><br><span class="line">	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:662)</span><br></pre></td></tr></table></figure></p>
+<p>初步怀疑是插入的值大于该字段数据类型约束的长度导致。因为这个异常是我在保存一个字段信息的时候出现的，保存的信息过大，超过了我在数据库指定的长度2000</p>
+<p>在网上找到了解决方法，这里记录下:<br>如果是varchar2类型(最大长度为4000字节)的，当长度超过2000–4000(最大值)之间的时候，Oracle会自动将该字段值转为long型的，插入操作失败。<br>解决办法是：将此字段的类型改为clob或者blob类型；<br>但是将oracle数据库表中的varchar2类型直接改成clob类型会失败，解决办法如下：new 一个Sql view，执行下列代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name modify col_name long;</span><br><span class="line">alter table table_name modify col_name clob;</span><br></pre></td></tr></table></figure></p>
+<p>在进行此操作之前需要先备份表的数据，然后清空表中的数据，再修改表的字段属性，最后将数据导入即可。<br>注：clob不需指定长度。<br>1、插入到字符串长度大于4000字节。<br>2、插入到表中的记录其中一个是long类型、还有其他实际长度大于2000个字节（如果是 UTF-8，则是1333个字节）；或者是插入的记录中有两个或两个以上长度大于2000字节的字符串 。<br>用以下SQL可以查出有可能引起ORA-01461错误的表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM </span><br><span class="line">(SELECT TABLE_NAME, OWNER, count(*) NUM </span><br><span class="line">FROM DBA_TAB_COLUMNS </span><br><span class="line">WHERE DATA_TYPE=&apos;LONG&apos; </span><br><span class="line">OR (( DATA_TYPE=&apos;VARCHAR2&apos; </span><br><span class="line">or DATA_TYPE=&apos;CHAR&apos; </span><br><span class="line">or DATA_TYPE=&apos;NVARCHAR2&apos; </span><br><span class="line">or DATA_TYPE=&apos;NCHAR&apos;) </span><br><span class="line">AND DATA_LENGTH &gt; 1333) </span><br><span class="line">AND OWNER NOT IN </span><br><span class="line">(&apos;SYS&apos;,&apos;SYSTEM&apos;,&apos;SH&apos;,&apos;OLAPSYS&apos;,&apos;MDSYS&apos;,&apos;WKSYS&apos;,&apos;ORDSYS&apos;,&apos;CTXSYS&apos;,&apos;ODM&apos;,&apos;XDB&apos;,&apos;WMSYS&apos;,&apos;APEX_030200&apos;,&apos;EXFSYS&apos;,&apos;SYSMAN&apos;,&apos;ORDDATA&apos;)</span><br><span class="line">GROUP BY TABLE_NAME, OWNER) </span><br><span class="line">WHERE NUM &gt; 1;</span><br></pre></td></tr></table></figure></p>
+<p>关于错误的其他原因：<br>当向ORACLE数据库中插入或更新数据时，报错“ORA-01461: 仅可以为插入 LONG 列的 LONG 值赋值”，可能有以下几种原因：<br>1、插入到字符串长度大于4000字节。<br>2、插入到表中的记录的某个字段数据的实际长度大于2000个字节（如果是UTF-8，则是1333个字节）；或者是插入的记录中有两个或两个以上长度大于2000字节的字符串。<br>3、数据库与客户端的JDBC 驱动不匹配。对于UTF-8或欧洲的某些字符集，oracle在存储时，对于一个字符需要2个或3个字节的存储空间，虽然表定义中为 varchar2(4000)，但是其实该字段的data_length为其2倍或3倍长。这种情况下oracle会把data_length长度超过 4000的当做LONG型处理，你的表中有两个这样的字段，插入数据时相当于同时操作2个LONG字段。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/" title="ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值" target="_blank" rel="external">http://yoursite.com/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Dream-Hui" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar1.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Dream-Hui" target="_blank"><span class="text-dark">Ce-H</span><small class="ml-1x">一个科班码农</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/01/10/my-first-blog/" title="第一篇博客文章测试">Older&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>Thank you for your support, I will continue to work hard!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/" alt="Scan Qrcode" title="Scan" />
+          </div>
+          <p class="text-muted mv">Scan this qrcode</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/" alt="alipay" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/" alt="weipay" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>Scan this qrcode, you can sweep yards reward oh!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Dream-Hui" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
+    
+    
+
+
+
+</body>
+</html>
