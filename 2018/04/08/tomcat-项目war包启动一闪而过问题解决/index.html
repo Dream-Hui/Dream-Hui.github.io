@@ -16,15 +16,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>歸檔: 2018/1 | Ce-H之家</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ce-H">
-<meta property="og:url" content="http://yoursite.com/archives/2018/01/index.html">
+  <title>tomcat-项目war包启动一闪而过问题解决 | Ce-H之家</title>
+  <meta name="description" content="今天将项目打包成war包在tomcat部署的时候，启动一闪而过，查看了tomcat的log日志，发现启动的时候报了这个错误：12345678910111213严重: Error starting static Resourcesjava.lang.IllegalArgumentException:Document base E:\workspaces\skg\skg-app-root\module">
+<meta name="keywords" content="tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat-项目war包启动一闪而过问题解决">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/tomcat-项目war包启动一闪而过问题解决/index.html">
 <meta property="og:site_name" content="Ce-H">
+<meta property="og:description" content="今天将项目打包成war包在tomcat部署的时候，启动一闪而过，查看了tomcat的log日志，发现启动的时候报了这个错误：12345678910111213严重: Error starting static Resourcesjava.lang.IllegalArgumentException:Document base E:\workspaces\skg\skg-app-root\module">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6513244-d74df7ddfed7f955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-08T01:35:55.857Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ce-H">
+<meta name="twitter:title" content="tomcat-项目war包启动一闪而过问题解决">
+<meta name="twitter:description" content="今天将项目打包成war包在tomcat部署的时候，启动一闪而过，查看了tomcat的log日志，发现启动的时候报了这个错误：12345678910111213严重: Error starting static Resourcesjava.lang.IllegalArgumentException:Document base E:\workspaces\skg\skg-app-root\module">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6513244-d74df7ddfed7f955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/archives/2018/01/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/04/08/tomcat-项目war包启动一闪而过问题解决/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Ce-H" type="application/atom+xml">
   
@@ -323,68 +330,170 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">歸檔: 2018/1</h1>
-	      <p class="text-muted">共 3 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-tomcat-项目war包启动一闪而过问题解决" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      tomcat-项目war包启动一闪而过问题解决
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/04/08/tomcat-项目war包启动一闪而过问题解决/" class="article-date">
+	  <time datetime="2018-04-08T01:22:12.000Z" itemprop="datePublished">2018-04-08</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/tomcat/">tomcat</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/04/08/tomcat-项目war包启动一闪而过问题解决/#comments" class="article-comment-link">評論</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>今天将项目打包成war包在tomcat部署的时候，启动一闪而过，查看了tomcat的log日志，发现启动的时候报了这个错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">严重: Error starting static Resources</span><br><span class="line">java.lang.IllegalArgumentException:</span><br><span class="line">Document base E:\workspaces\skg\skg-app-root\modules\app-skg-store\src\main\webapp does not exist or is not a readable directory</span><br><span class="line">	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)</span><br><span class="line">	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5110)</span><br><span class="line">	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5294)</span><br><span class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</span><br><span class="line">	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1575)</span><br><span class="line">	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1565)</span><br><span class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:262)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:745)</span><br></pre></td></tr></table></figure></p>
+<p>######问题原因<br>上网一查才知道，这个tomcat是我在eclipse部署过项目的，tomcat7x\conf\server.xml里面有一个context的配置指向了这个workspaces工作空间<br><img src="https://upload-images.jianshu.io/upload_images/6513244-d74df7ddfed7f955.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="错误原因.png"></p>
+<p>######问题解决<br>于是乎，我把这个context配置注释掉，再启动tomcat,完美运行！</p>
+<p>另外，如果在conf\Catalina\localhost里面有两个xml文件host-manager.xml、manager.xml，<br>或Catalina里面其它的文件夹中也可能存在host-manager.xml,manager.xml这样的文件, 把它们都删除了就可以了.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2018/04/08/tomcat-项目war包启动一闪而过问题解决/" title="tomcat-项目war包启动一闪而过问题解决" target="_blank" rel="external">http://yoursite.com/2018/04/08/tomcat-项目war包启动一闪而过问题解决/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Dream-Hui" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar1.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Dream-Hui" target="_blank"><span class="text-dark">Ce-H</span><small class="ml-1x">一个科班码农</small></a></h3>
+        <div>努力努力再努力。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+       
+    <div id="uyan_frame"></div>
+
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2018
-            </a>
-            <!-- <a href="/archives/2018" class="archive-year">2018</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/" title="ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值">下一篇&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>賞</span></button>
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>感謝您的支持，我會繼續努力的!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/" alt="掃碼支持" title="掃一掃" />
+          </div>
+          <p class="text-muted mv">掃碼打賞，你說多少就多少</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/" alt="支付寶" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/" alt="微信支付" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>掃一掃，即可進行掃碼打賞哦</p>
+          </div>
         </div>
-        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2018/01/11/ORA-01461-仅能绑定要插入-LONG-列的-LONG-值/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-01-11T09:41:37.000Z" itemprop="datePublished">2018-01-11</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> ORA-01461: 仅能绑定要插入 LONG 列的 LONG 值
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-    
-    
-    
-<a href="/2018/01/10/my-first-blog/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-01-10T11:35:22.000Z" itemprop="datePublished">2018-01-10</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 第一篇博客文章测试
-</a>
 
-
-  
-    
-    
-    
-<a href="/2018/01/08/hello-world/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-01-08T12:22:24.596Z" itemprop="datePublished">2018-01-08</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hello World
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -441,6 +550,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
     
+    
+        
+    
+    <script defer type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=[object Object]"></script>
+
+
     
     
 
